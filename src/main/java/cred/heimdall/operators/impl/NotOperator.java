@@ -8,7 +8,7 @@ import java.util.List;
 public class NotOperator implements Operators {
     private static int precedence = 2;
     private static List<String> symbols;
-    private NotOperator notOperator = null;
+    private static NotOperator notOperator = null;
     private int operandCount;
 
     private NotOperator(){
@@ -18,7 +18,7 @@ public class NotOperator implements Operators {
         operandCount = 1;
     }
 
-    public NotOperator getInstance(){
+    public static NotOperator getInstance(){
         if(notOperator == null){
             notOperator = new NotOperator();
         }

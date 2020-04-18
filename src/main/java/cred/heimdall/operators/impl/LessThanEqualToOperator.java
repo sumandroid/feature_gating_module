@@ -18,7 +18,7 @@ public class LessThanEqualToOperator implements Operators {
         operandCount = 2;
     }
 
-    public LessThanEqualToOperator getInstance(){
+    public static LessThanEqualToOperator getInstance(){
         if(lessThanEqualToOperator == null){
             lessThanEqualToOperator = new LessThanEqualToOperator();
         }

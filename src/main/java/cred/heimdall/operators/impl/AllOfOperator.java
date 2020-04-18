@@ -18,7 +18,7 @@ public class AllOfOperator implements Operators {
         operandCount = 3;
     }
 
-    public AllOfOperator getInstance(){
+    public static AllOfOperator getInstance(){
         if(allOfOperator == null){
             allOfOperator = new AllOfOperator();
         }
@@ -27,16 +27,16 @@ public class AllOfOperator implements Operators {
 
     @Override
     public int getPrecedence() {
-        return 0;
+        return precedence;
     }
 
     @Override
     public List<String> getSymbols() {
-        return null;
+        return symbols;
     }
 
     @Override
     public int getOperandCount() {
-        return 0;
+        return operandCount;
     }
 }

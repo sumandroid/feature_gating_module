@@ -3,11 +3,10 @@ package cred.heimdall;
 import cred.heimdall.constants.Gender;
 import cred.heimdall.domain.models.User;
 import cred.heimdall.evaluators.Context;
+import cred.heimdall.evaluators.Evaluator;
+import cred.heimdall.evaluators.impl.EvalToBool;
 import cred.heimdall.serializers.ObjectToMapSerializer;
 import cred.heimdall.serializers.impl.UserObjSerializer;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -17,6 +16,7 @@ public class Main {
         System.out.println("press 1 to evaluate features and press 2 to exit the program.");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
+        Evaluator evaluator = new EvalToBool();
         User user = new User("suman saurabh",
                 "sumansaurabh93s@gmail.com",
                 "8505947133",
@@ -26,6 +26,7 @@ public class Main {
                 Gender.Male);
         ObjectToMapSerializer objectToMapSerializer = new UserObjSerializer();
         Context context = new Context(user, objectToMapSerializer);
+        evaluator.eval(context, "10 > 12");
         if (!input.equals("2")) {
             while (true) {
                 System.out.println("Using dummy user: ");

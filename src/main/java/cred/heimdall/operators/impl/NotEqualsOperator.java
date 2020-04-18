@@ -18,7 +18,7 @@ public class NotEqualsOperator implements Operators {
         this.operandCount = 2;
     }
 
-    public NotEqualsOperator getInstance(){
+    public static NotEqualsOperator getInstance(){
         if(notEqualsOperator == null){
             notEqualsOperator = new NotEqualsOperator();
         }

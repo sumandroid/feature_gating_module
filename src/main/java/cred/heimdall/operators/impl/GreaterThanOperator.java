@@ -18,7 +18,7 @@ public class GreaterThanOperator implements Operators {
         operandCount = 2;
     }
 
-    public GreaterThanOperator getInstance(){
+    public static GreaterThanOperator getInstance(){
         if(greaterThanOperator == null){
             greaterThanOperator = new GreaterThanOperator();
         }

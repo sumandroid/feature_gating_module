@@ -8,7 +8,7 @@ import java.util.List;
 public class AndOperator implements Operators {
     private static int precedence = 11;
     private static List<String> symbols;
-    private AndOperator andOperator = null;
+    private static AndOperator andOperator = null;
     private int operandCount;
 
     private AndOperator(){
@@ -18,7 +18,7 @@ public class AndOperator implements Operators {
         operandCount = 2;
     }
 
-    public AndOperator getInstance(){
+    public static AndOperator getInstance(){
         if(andOperator == null){
             andOperator = new AndOperator();
         }

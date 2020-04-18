@@ -18,7 +18,7 @@ public class GreaterThanEqualToOperator implements Operators {
         operandCount = 2;
     }
 
-    public GreaterThanEqualToOperator getInstance(){
+    public static GreaterThanEqualToOperator getInstance(){
         if(greaterThanEqualToOperator == null){
             greaterThanEqualToOperator = new GreaterThanEqualToOperator();
         }

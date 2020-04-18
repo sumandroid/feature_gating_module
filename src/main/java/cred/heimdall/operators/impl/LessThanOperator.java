@@ -18,7 +18,7 @@ public class LessThanOperator implements Operators {
         this.operandCount = 2;
     }
 
-    public LessThanOperator getInstance(){
+    public static LessThanOperator getInstance(){
         if(lessThanOperator == null){
             lessThanOperator = new LessThanOperator();
         }

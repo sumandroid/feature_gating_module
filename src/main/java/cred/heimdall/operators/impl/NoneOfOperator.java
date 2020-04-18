@@ -18,7 +18,7 @@ public class NoneOfOperator implements Operators {
         operandCount = 3;
     }
 
-    public NoneOfOperator getInstance(){
+    public static NoneOfOperator getInstance(){
         if(noneOfOperator == null){
             noneOfOperator = new NoneOfOperator();
         }

@@ -1,5 +1,5 @@
 package cred.heimdall.evaluators;
 
 public interface Evaluator {
-    boolean evalToBool(Context context, String condition);
+    boolean eval(Context context, String condition);
 }

@@ -18,7 +18,7 @@ public class BetweenOperator implements Operators {
         operandCount = 3;
     }
 
-    public BetweenOperator getInstance(){
+    public static BetweenOperator getInstance(){
         if(betweenOperator == null){
             betweenOperator = new BetweenOperator();
         }

@@ -8,7 +8,7 @@ import java.util.List;
 public class OrOperator implements Operators {
     private static int precedence = 12;
     private static List<String> symbols;
-    private OrOperator orOperator = null;
+    private static OrOperator orOperator = null;
     private int operandCount;
 
     private OrOperator(){
@@ -18,7 +18,7 @@ public class OrOperator implements Operators {
         operandCount = 2;
     }
 
-    public OrOperator getInstance(){
+    public static OrOperator getInstance(){
         if(orOperator == null){
             orOperator = new OrOperator();
         }
