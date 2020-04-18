@@ -1,7 +1,7 @@
 package cred.heimdall.constants;
 
 public enum Gender {
-    MALE("Male"), FEMALE("Female");
+    Male("Male"), Female("Female");
 
     String value;
 

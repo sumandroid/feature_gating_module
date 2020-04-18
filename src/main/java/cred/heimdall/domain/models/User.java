@@ -14,6 +14,22 @@ public class User extends Person{
         this.active = true;
     }
 
+    public float getPastOrderAmount() {
+        return pastOrderAmount;
+    }
+
+    public void setPastOrderAmount(float pastOrderAmount) {
+        this.pastOrderAmount = pastOrderAmount;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
     @Override
     public String toString(){
         StringBuilder stringBuilder = new StringBuilder();

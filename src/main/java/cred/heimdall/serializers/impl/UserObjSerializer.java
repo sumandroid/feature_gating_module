@@ -19,11 +19,12 @@ public class UserObjSerializer implements ObjectToMapSerializer {
             for(PropertyDescriptor propertyDescriptor : Introspector.getBeanInfo(User.class, Object.class).getPropertyDescriptors()){
                 Method method  = propertyDescriptor.getReadMethod();
                 String attribute = method.getName().replace("get", "");
-                Object val = method.invoke(o, (Object)null);
+                Object val = method.invoke(o, (Object[])null);
                 map.put(attribute, val);
             }
         }catch (Exception e){
             System.out.println("Error while Serializing user object: " + user.toString());
+            System.out.println(e.getMessage());
         }
         return map;
     }
