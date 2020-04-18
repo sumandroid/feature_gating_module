@@ -26,7 +26,6 @@ public class Main {
                 Gender.Male);
         ObjectToMapSerializer objectToMapSerializer = new UserObjSerializer();
         Context context = new Context(user, objectToMapSerializer);
-        Map<String, String> featureConditionMap = new HashMap<>();
         if (!input.equals("2")) {
             while (true) {
                 System.out.println("Using dummy user: ");
