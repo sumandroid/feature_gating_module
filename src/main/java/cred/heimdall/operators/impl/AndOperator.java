@@ -1,12 +1,14 @@
 package cred.heimdall.operators.impl;
 
 import cred.heimdall.operators.Operators;
+import exceptions.OperandCountException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 public class AndOperator implements Operators {
-    private static int precedence = 11;
+    private static int precedence = 2;
     private static List<String> symbols;
     private static AndOperator andOperator = null;
     private int operandCount;
@@ -38,5 +40,18 @@ public class AndOperator implements Operators {
     @Override
     public int getOperandCount() {
         return operandCount;
+    }
+
+    @Override
+    public Object operate(Queue<Object> operands) throws RuntimeException {
+        if(operands.size() != operandCount){
+            throw new OperandCountException("Invalid operand count for AND operator");
+        }
+        Object operand1 = operands.poll();
+        Object operand2 = operands.poll();
+        if((Boolean) operand1 && (Boolean) operand2){
+            return true;
+        }
+        return false;
     }
 }

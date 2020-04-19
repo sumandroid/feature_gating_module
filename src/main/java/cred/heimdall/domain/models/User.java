@@ -8,8 +8,8 @@ public class User extends Person{
     private Boolean active;
 
     public User(String name, String email, String phone, String address, int pincode,
-                float pastOrderAmount, Gender gender) {
-        super(name, email, phone, address, pincode, gender);
+                float pastOrderAmount, Gender gender, int age, String city, String state) {
+        super(name, email, phone, address, pincode, gender, age, city, state);
         this.pastOrderAmount = pastOrderAmount;
         this.active = true;
     }

@@ -1,9 +1,12 @@
 package cred.heimdall.operators.impl;
 
 import cred.heimdall.operators.Operators;
+import exceptions.OperandCountException;
+import exceptions.UnSupportedOperandType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 public class BetweenOperator implements Operators {
     private static int precedence = 5;
@@ -38,5 +41,30 @@ public class BetweenOperator implements Operators {
     @Override
     public int getOperandCount() {
         return operandCount;
+    }
+
+    @Override
+    public Object operate(Queue<Object> operands) throws RuntimeException {
+        if(operands.size() != operandCount){
+            throw new OperandCountException("Invalid operand count for BETWEEN operator");
+        }
+        Object attribute = operands.poll();
+        Object start = operands.poll();
+        Object end = operands.poll();
+        if(attribute instanceof Integer){
+            if(start instanceof Integer && end instanceof Integer){
+                return ((Integer) attribute >= (Integer) start &&
+                        (Integer) attribute <= (Integer) end);
+            }
+            throw new IllegalArgumentException("Type mismatch for operands");
+        }
+        if(attribute instanceof Float){
+            if(start instanceof Float && end instanceof Float){
+                return ((Float) attribute >= (Float) start &&
+                        (Float) attribute <= (Float) end);
+            }
+            throw new IllegalArgumentException("Type mismatch for operands");
+        }
+        throw new UnSupportedOperandType("Unsupported types for Between operator");
     }
 }

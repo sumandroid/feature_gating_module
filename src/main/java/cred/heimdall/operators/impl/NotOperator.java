@@ -1,12 +1,15 @@
 package cred.heimdall.operators.impl;
 
 import cred.heimdall.operators.Operators;
+import exceptions.OperandCountException;
+import exceptions.UnSupportedOperandType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 public class NotOperator implements Operators {
-    private static int precedence = 2;
+    private static int precedence = 3;
     private static List<String> symbols;
     private static NotOperator notOperator = null;
     private int operandCount;
@@ -38,5 +41,17 @@ public class NotOperator implements Operators {
     @Override
     public int getOperandCount() {
         return operandCount;
+    }
+
+    @Override
+    public Object operate(Queue<Object> operands) throws RuntimeException {
+        if(operands.size() != operandCount){
+            throw new OperandCountException("Invalid operand count for Not operator");
+        }
+        Object operand = operands.poll();
+        if(operand instanceof Boolean){
+            return !(Boolean) operand;
+        }
+        throw new UnSupportedOperandType("Unsupported operand type for Not operator");
     }
 }

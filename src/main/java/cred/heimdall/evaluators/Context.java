@@ -15,6 +15,7 @@ public class Context {
     }
 
     public Object getAttributeVal(String attributeName){
+
         return attributeMap.get(attributeName);
     }
 }

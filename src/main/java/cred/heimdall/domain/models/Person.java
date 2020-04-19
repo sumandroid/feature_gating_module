@@ -9,14 +9,21 @@ public abstract class Person {
     private String address;
     private int pincode;
     private Gender gender;
+    private int age;
+    private String city;
+    private String state;
 
-    public Person(String name, String email, String phone, String address, int pincode, Gender gender){
+    public Person(String name, String email, String phone, String address, int pincode, Gender gender, int age,
+                  String city, String state){
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.pincode = pincode;
         this.gender = gender;
+        this.age = age;
+        this.city = city;
+        this.state = state;
     }
 
     public String getName() {
@@ -29,6 +36,22 @@ public abstract class Person {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public void setEmail(String email) {
@@ -65,6 +88,14 @@ public abstract class Person {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public int getAge(){
+        return age;
+    }
+
+    public void setAge(int age){
+        this.age = age;
     }
 
     @Override
