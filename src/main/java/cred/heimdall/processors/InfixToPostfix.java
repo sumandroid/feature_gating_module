@@ -24,11 +24,11 @@ public class InfixToPostfix {
         return infixToPostfix;
     }
 
-    public Map<String, Operators> getSymbolOperatorMap(){
+    public Map<String, Operators> getSymbolOperatorMap() {
         return symbolOperatorMap;
     }
 
-    public Set<Operators> getOperators(){
+    public Set<Operators> getOperators() {
         return operators;
     }
 
@@ -42,21 +42,21 @@ public class InfixToPostfix {
         for (String element : elements) {
             if (element.equalsIgnoreCase("(")) {
                 stack.push(element);
-            }else if(element.equalsIgnoreCase(")")){
-                while(!stack.isEmpty() && !stack.peek().equalsIgnoreCase("(")){
+            } else if (element.equalsIgnoreCase(")")) {
+                while (!stack.isEmpty() && !stack.peek().equalsIgnoreCase("(")) {
                     res.append(stack.pop()).append(" ");
                 }
-                if (!stack.isEmpty() && !stack.peek().equalsIgnoreCase("(")){
+                if (!stack.isEmpty() && !stack.peek().equalsIgnoreCase("(")) {
                     throw new InfixToPostfixException("invalid expression");
-                }else{
+                } else {
                     stack.pop();
                 }
 
-            }else if (!isOperator(element)) {
+            } else if (!isOperator(element)) {
                 res.append(element).append(" ");
-            }else{
-                while(!stack.isEmpty() &&  getPrecendence(element) <= getPrecendence(stack.peek())){
-                    if(stack.peek().equalsIgnoreCase("(")){
+            } else {
+                while (!stack.isEmpty() && getPrecendence(element) <= getPrecendence(stack.peek())) {
+                    if (stack.peek().equalsIgnoreCase("(")) {
                         throw new InfixToPostfixException("invalid expression");
                     }
                     res.append(stack.pop()).append(" ");
@@ -64,8 +64,8 @@ public class InfixToPostfix {
                 stack.push(element);
             }
         }
-        while(!stack.isEmpty()){
-            if(stack.peek().equalsIgnoreCase("(")){
+        while (!stack.isEmpty()) {
+            if (stack.peek().equalsIgnoreCase("(")) {
                 throw new InfixToPostfixException("invalid expression");
             }
             res.append(stack.pop()).append(" ");
@@ -74,36 +74,38 @@ public class InfixToPostfix {
     }
 
 
-    public Boolean eval(String postFix, Context context){
+    public Boolean eval(String postFix, Context context) {
         Stack<Object> stack = new Stack<>();
         String[] elements = postFix.split(" ");
-        for(String element : elements){
-            if(!isOperator(element)){
-                Object val = context.getAttributeVal(element);
-                if(val != null){
+        for (String element : elements) {
+            if (!isOperator(element)) {
+                Object val = context.getAttributeVal(element.toLowerCase());
+                if (val != null) {
                     stack.push(val);
-                }else if(element.equalsIgnoreCase("true")){
+                } else if (element.equalsIgnoreCase("true")) {
                     stack.push(true);
-                }else if(element.equalsIgnoreCase("false")){
+                } else if (element.equalsIgnoreCase("false")) {
                     stack.push(false);
-                }else{
+                } else {
                     try {
                         int value = Integer.parseInt(element);
                         stack.push(value);
                         continue;
-                    }catch (NumberFormatException ignored){}
-                    try{
+                    } catch (NumberFormatException ignored) {
+                    }
+                    try {
                         double value = Double.parseDouble(element);
                         stack.push(value);
                         continue;
-                    }catch (NumberFormatException ignored){}
+                    } catch (NumberFormatException ignored) {
+                    }
                     stack.push(element);
                 }
-            }else{
+            } else {
                 Operators operator = symbolOperatorMap.get(element);
                 int operandCount = operator.getOperandCount();
                 List<Object> operandsList = new LinkedList<>();
-                for(int i = 0; i < operandCount; i++){
+                for (int i = 0; i < operandCount; i++) {
                     operandsList.add(stack.pop());
                 }
                 Collections.reverse(operandsList);
@@ -117,12 +119,12 @@ public class InfixToPostfix {
 
 
     private static boolean isOperator(String element) {
-      for(String key : symbolOperatorMap.keySet()){
-          if(key.equalsIgnoreCase(element)){
-              return true;
-          }
-      }
-      return false;
+        for (String key : symbolOperatorMap.keySet()) {
+            if (key.equalsIgnoreCase(element)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void populateOperationsSet() {
@@ -151,9 +153,9 @@ public class InfixToPostfix {
         }
     }
 
-    private int getPrecendence(String element){
-        for(String key : symbolOperatorMap.keySet()){
-            if(element.equals(key)){
+    private int getPrecendence(String element) {
+        for (String key : symbolOperatorMap.keySet()) {
+            if (element.equals(key)) {
                 return symbolOperatorMap.get(key).getPrecedence();
             }
         }

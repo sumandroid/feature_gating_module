@@ -1,7 +1,7 @@
 package cred.heimdall.operators.impl;
 import cred.heimdall.operators.Operators;
 import exceptions.OperandCountException;
-import exceptions.UnSupportedOperandType;
+import exceptions.UnSupportedOperandTypeException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +55,6 @@ public class OrOperator implements Operators {
             }
             return false;
         }
-        throw new UnSupportedOperandType("Unsupported operand type for OR operator");
+        throw new UnSupportedOperandTypeException("Unsupported operand type for OR operator");
     }
 }

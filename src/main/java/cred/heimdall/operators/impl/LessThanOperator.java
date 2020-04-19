@@ -2,7 +2,7 @@ package cred.heimdall.operators.impl;
 
 import cred.heimdall.operators.Operators;
 import exceptions.OperandCountException;
-import exceptions.UnSupportedOperandType;
+import exceptions.UnSupportedOperandTypeException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +69,6 @@ public class LessThanOperator implements Operators {
             }
             throw new IllegalArgumentException("Type mismatch of operands for LessThan operator");
         }
-        throw new UnSupportedOperandType("Type not supported for LessThan operator");
+        throw new UnSupportedOperandTypeException("Type not supported for LessThan operator");
     }
 }

@@ -13,6 +13,8 @@ public abstract class Person {
     private String city;
     private String state;
 
+    public Person(){}
+
     public Person(String name, String email, String phone, String address, int pincode, Gender gender, int age,
                   String city, String state){
         this.name = name;

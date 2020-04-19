@@ -2,7 +2,7 @@ package cred.heimdall.operators.impl;
 
 import cred.heimdall.operators.Operators;
 import exceptions.OperandCountException;
-import exceptions.UnSupportedOperandType;
+import exceptions.UnSupportedOperandTypeException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +52,6 @@ public class NotOperator implements Operators {
         if(operand instanceof Boolean){
             return !(Boolean) operand;
         }
-        throw new UnSupportedOperandType("Unsupported operand type for Not operator");
+        throw new UnSupportedOperandTypeException("Unsupported operand type for Not operator");
     }
 }

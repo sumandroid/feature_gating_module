@@ -2,7 +2,7 @@ package cred.heimdall.operators.impl;
 
 import cred.heimdall.operators.Operators;
 import exceptions.OperandCountException;
-import exceptions.UnSupportedOperandType;
+import exceptions.UnSupportedOperandTypeException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +65,6 @@ public class BetweenOperator implements Operators {
             }
             throw new IllegalArgumentException("Type mismatch for operands");
         }
-        throw new UnSupportedOperandType("Unsupported types for Between operator");
+        throw new UnSupportedOperandTypeException("Unsupported types for Between operator");
     }
 }

@@ -23,7 +23,7 @@ public class UserObjSerializer implements ObjectToMapSerializer {
                 if(val instanceof Enum){
                     val = val.toString();
                 }
-                map.put(attribute, val);
+                map.put(attribute.toLowerCase(), val);
             }
         }catch (Exception e){
             System.out.println("Error while Serializing user object: " + user.toString());

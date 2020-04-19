@@ -7,6 +7,11 @@ public class User extends Person{
     private float pastOrderAmount;
     private Boolean active;
 
+    public User(){
+        super();
+        this.active = true;
+    }
+
     public User(String name, String email, String phone, String address, int pincode,
                 float pastOrderAmount, Gender gender, int age, String city, String state) {
         super(name, email, phone, address, pincode, gender, age, city, state);

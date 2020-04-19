@@ -18,6 +18,8 @@ public class OperatorsHelpPrinter {
         stringBuilder.append("NotEquals ex: City != Delhi").append("\n");
         stringBuilder.append("Not ex: ! ( City == Delhi )").append("\n");
         stringBuilder.append("Or ex: Age > 25 || City == Delhi").append("\n");
+        stringBuilder.append("enter 1 to start testing feature ")
+                .append("and exit to exit the program").append("\n");
         System.out.println(stringBuilder.toString());
     }
 

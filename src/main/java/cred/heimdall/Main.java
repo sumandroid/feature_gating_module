@@ -53,10 +53,10 @@ public class Main {
             Evaluator evaluator = new EvalPostFixToBool();
             boolean result = evaluator.eval(context, condition);
             if(result){
-                System.out.println(context.getAttributeVal("Name") +
+                System.out.println(context.getAttributeVal("name") +
                         " is allowed to use feature: " + featureName);
             }else{
-                System.out.println(context.getAttributeVal("Name") +
+                System.out.println(context.getAttributeVal("name") +
                         " is not allowed to use feature: " + featureName);
             }
         }catch (Exception e){
