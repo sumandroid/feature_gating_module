@@ -7,39 +7,42 @@ import cred.heimdall.evaluators.Evaluator;
 import cred.heimdall.evaluators.impl.EvalPostFixToBool;
 import cred.heimdall.serializers.ObjectToMapSerializer;
 import cred.heimdall.serializers.impl.UserObjSerializer;
-
-import java.util.Arrays;
+import cred.heimdall.utils.OperatorsHelpPrinter;
+import cred.heimdall.utils.WelcomeScreenPrinter;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Welcome to heimdall! A feature gating module \n");
-        System.out.println("press 1 to evaluate features and press 2 to exit the program.");
+        WelcomeScreenPrinter.print();
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        Evaluator evaluator = new EvalPostFixToBool();
-        User user = new User("suman saurabh",
-                "sumansaurabh93s@gmail.com",
-                "8505947133",
-                "Sobha Mayflower, Bellandur, Bengaluru",
-                560103,
-                10000,
-                Gender.Male,
-                25,
-                "Delhi",
-                "Delhi");
-        ObjectToMapSerializer objectToMapSerializer = new UserObjSerializer();
-        if (!input.equals("2")) {
-            while (true) {
+        while(true){
+            String input = scanner.nextLine();
+            if(input.equalsIgnoreCase("help")){
+                OperatorsHelpPrinter.print();
+            }else if(input.equals("1")){
+                User user = new User("suman saurabh",
+                        "sumansaurabh93s@gmail.com",
+                        "8505947133",
+                        "Sobha Mayflower, Bellandur, Bengaluru",
+                        560103,
+                        10000,
+                        Gender.Male,
+                        25,
+                        "Delhi",
+                        "Delhi");
                 System.out.println("Using dummy user: ");
                 System.out.println("User: {\n" + user.toString() + "\n}");
                 System.out.println("Enter feature name");
                 String featureName = scanner.nextLine();
                 System.out.println("Enter condition");
                 String condition = scanner.nextLine();
+                ObjectToMapSerializer objectToMapSerializer = new UserObjSerializer();
                 Context context = new Context(user, objectToMapSerializer);
                 processFeatureCondition(featureName.trim(), condition.trim(), context);
+                System.out.println("enter 1 again to test the condition or exit to exit the program");
+            }else{
+                break;
             }
         }
         System.out.println("Program exiting....");

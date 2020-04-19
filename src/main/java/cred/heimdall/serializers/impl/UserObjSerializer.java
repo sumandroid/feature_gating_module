@@ -20,6 +20,9 @@ public class UserObjSerializer implements ObjectToMapSerializer {
                 Method method  = propertyDescriptor.getReadMethod();
                 String attribute = method.getName().replace("get", "");
                 Object val = method.invoke(o, (Object[])null);
+                if(val instanceof Enum){
+                    val = val.toString();
+                }
                 map.put(attribute, val);
             }
         }catch (Exception e){

@@ -12,4 +12,9 @@ public enum Gender {
     public static String value(Gender gender){
         return gender.value;
     }
+
+    @Override
+    public String toString(){
+        return value;
+    }
 }

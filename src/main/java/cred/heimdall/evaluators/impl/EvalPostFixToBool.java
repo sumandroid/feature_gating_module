@@ -15,7 +15,7 @@ public class EvalPostFixToBool implements Evaluator {
     @Override
     public boolean eval(Context context, String condition) {
         String postFix = infixToPostfix.convert(condition);
-        System.out.println("Postfix expression is :" + postFix);
+        System.out.println("Postfix expression is : " + postFix);
         return infixToPostfix.eval(postFix, context);
     }
 
