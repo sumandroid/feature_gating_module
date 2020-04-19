@@ -2,6 +2,7 @@ package cred.heimdall.operators.impl;
 
 import cred.heimdall.operators.Operators;
 import exceptions.OperandCountException;
+import exceptions.UnSupportedOperandTypeException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +50,16 @@ public class AndOperator implements Operators {
         }
         Object operand1 = operands.poll();
         Object operand2 = operands.poll();
-        if((Boolean) operand1 && (Boolean) operand2){
-            return true;
+        if(operand1 != null && operand2 != null){
+            if(operand1 instanceof Boolean && operand2 instanceof Boolean){
+                if((Boolean) operand1 && (Boolean) operand2){
+                    return true;
+                }
+                return false;
+            }else{
+                throw new UnSupportedOperandTypeException("Unsupported operands for And operator");
+            }
         }
-        return false;
+        throw new IllegalArgumentException("Illegal Arguments for And operator");
     }
 }
