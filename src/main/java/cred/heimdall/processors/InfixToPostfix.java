@@ -159,7 +159,7 @@ public class InfixToPostfix {
 
     private int getPrecendence(String element) {
         for (String key : symbolOperatorMap.keySet()) {
-            if (element.equals(key)) {
+            if (element.equalsIgnoreCase(key)) {
                 return symbolOperatorMap.get(key).getPrecedence();
             }
         }

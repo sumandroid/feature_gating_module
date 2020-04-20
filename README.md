@@ -1,7 +1,7 @@
 #Feature Gating Module
 Evaluates a conditional expression to boolean for a given set of attributes. It decides whether a user is allowed to
 access a particular feature given it's attributes for this particular use case
-but can be easily extended for any other use case.
+but can be easily extended for any other use case. It is implemented using vanilla Java without any external library
 
 Currently any logical operator can be supported extending functionality for BETWEEN, ALLOF, NONEOF operators as well.
 See classes under 'operators' directory for details of every operator.
@@ -39,9 +39,9 @@ User Attributes:
  }
 
 Note:
->Use whitespace after every operator and operands including opening and closing brackets
->attributes in condition expression are case-insensitive
->Only the valid attributes of User/Person class can be used
+>Use whitespace after every operator and operands including opening and closing brackets.
+>Attributes in condition expression are case-insensitive.
+>Only the valid attributes of User/Person class can be used.
 >Unit Test Cases are written under test folder.
 
 * To Compile/Build the project
