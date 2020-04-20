@@ -49,7 +49,11 @@ public class InfixToPostfix {
                 if (!stack.isEmpty() && !stack.peek().equalsIgnoreCase("(")) {
                     throw new InfixToPostfixException("invalid expression");
                 } else {
-                    stack.pop();
+                    try{
+                        stack.pop();
+                    }catch (EmptyStackException e){
+                        throw new InfixToPostfixException("invalid expression");
+                    }
                 }
 
             } else if (!isOperator(element)) {
