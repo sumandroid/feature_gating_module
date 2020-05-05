@@ -21,16 +21,18 @@ public class Main {
             if(input.equalsIgnoreCase("help")){
                 OperatorsHelpPrinter.print();
             }else if(input.equals("1")){
-                User user = new User("suman saurabh",
-                        "sumansaurabh93s@gmail.com",
-                        "8505947133",
-                        "Sobha Mayflower, Bellandur, Bengaluru",
-                        560103,
-                        10000,
-                        Gender.Male,
-                        25,
-                        "Delhi",
-                        "Delhi");
+                User user = new User.Builder().name("suman saurabh")
+                        .email("suman.saurabh@gmail.com")
+                        .phone("8505947133")
+                        .address("sobha mayflower")
+                        .pincode(560103)
+                        .pastOrderAmount(10000.25f)
+                        .gender(Gender.Male)
+                        .age(25)
+                        .city("Bengaluru")
+                        .state("karnataka")
+                        .active(true)
+                        .build();
                 System.out.println("Using dummy user: ");
                 System.out.println("User: {\n" + user.toString() + "\n}");
                 System.out.println("Enter feature name");

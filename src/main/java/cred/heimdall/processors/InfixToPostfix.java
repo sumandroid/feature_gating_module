@@ -98,7 +98,7 @@ public class InfixToPostfix {
                     } catch (NumberFormatException ignored) {
                     }
                     try {
-                        double value = Double.parseDouble(element);
+                        float value = Float.parseFloat(element);
                         stack.push(value);
                         continue;
                     } catch (NumberFormatException ignored) {
@@ -145,6 +145,7 @@ public class InfixToPostfix {
         operators.add(NotEqualsOperator.getInstance());
         operators.add(NotOperator.getInstance());
         operators.add(OrOperator.getInstance());
+        operators.add(PlusOperator.getInstance());
         populateSymbolOperatorMap();
     }
 

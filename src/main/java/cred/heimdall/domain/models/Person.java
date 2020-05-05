@@ -3,30 +3,17 @@ package cred.heimdall.domain.models;
 import cred.heimdall.constants.Gender;
 
 public abstract class Person {
-    private String name;
-    private String email;
-    private String phone;
-    private String address;
-    private int pincode;
-    private Gender gender;
-    private int age;
-    private String city;
-    private String state;
+    protected String name;
+    protected String email;
+    protected String phone;
+    protected String address;
+    protected int pincode;
+    protected Gender gender;
+    protected int age;
+    protected String city;
+    protected String state;
 
     public Person(){}
-
-    public Person(String name, String email, String phone, String address, int pincode, Gender gender, int age,
-                  String city, String state){
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.pincode = pincode;
-        this.gender = gender;
-        this.age = age;
-        this.city = city;
-        this.state = state;
-    }
 
     public String getName() {
         return name;
